@@ -46,5 +46,5 @@ jobs:
 
     - name: Deploy with Terraform
       run: |
-        terraform init
-        terraform apply -auto-approve
+        terraform --chdir=terraform init
+        terraform --chdir=terraform apply -auto-approve
