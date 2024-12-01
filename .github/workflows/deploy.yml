@@ -28,6 +28,18 @@ jobs:
     - name: Build and Push Docker Image
       run: |
         skaffold dev
+
+
+    - name: Install Skaffold
+      run: |
+        curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+        chmod +x skaffold
+        sudo mv skaffold /usr/local/bin
+
+
+    - name: Run Skaffold Deploy
+      run: |
+        skaffold run --default-repo=$ {{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ sectets.region}}.amazonaws.com/weather-app
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
