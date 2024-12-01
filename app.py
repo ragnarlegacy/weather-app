@@ -8,7 +8,7 @@ class WeatherApp:
         self.app.config['CACHE_TYPE'] = 'SimpleCache'  
         self.app.config['CACHE_DEFAULT_TIMEOUT'] = 300 
         self.cache = Cache(self.app)
-        self.api_key = "84cc9d23bb9571cdd3f0a5f0720fe802"  # Replace with your OpenWeatherMap API key
+        self.api_key = ${{ secrets.API_KEY }}  # Replace with your OpenWeatherMap API key
         self.configure_routes()
 
     def configure_routes(self):
