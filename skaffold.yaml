@@ -1,0 +1,24 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: weather-app
+build:
+  artifacts:
+    - image: lytx
+      context: .
+      docker:
+        dockerfile: Dockerfile
+
+manifests:
+  kustomize:
+    paths:
+    - kubeyaml/deployment.yaml
+    - kubeyaml/service.yaml
+deploy:
+  kubectl: {}
+
+portForward:
+  - resourceType: service
+    resourceName: weather-app
+    port: 8000
+    localPort: 8000

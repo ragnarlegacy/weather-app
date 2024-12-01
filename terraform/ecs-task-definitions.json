@@ -1,0 +1,14 @@
+[
+    {
+      "name": "weather-app",
+      "image": "<IMAGE_URI>", 
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000
+        }
+      ]
+    }
+  ]
+  
